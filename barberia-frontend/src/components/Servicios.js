@@ -19,8 +19,6 @@ const Servicios = () => {
   const [empleados, setEmpleados] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const navigate = useNavigate();
-  const [ setUser] = useState({ nombre: '', correo: '', id_negocio: null });
-
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -34,7 +32,6 @@ const Servicios = () => {
       })
       .then((response) => {
         console.log('Usuario autenticado:', response.data);
-        setUser(response.data);
   
         const negocio = response.data.negocio;
         if (negocio && negocio.id) {
