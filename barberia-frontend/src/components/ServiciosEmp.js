@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const ServiciosEmp = () => {
   const [servicios, setServicios] = useState([]);
-  const [ setUser] = useState(null);
 
   useEffect(() => {
     // Verificar si el usuario tiene un token válido y obtener la información del usuario
@@ -16,7 +15,6 @@ const ServiciosEmp = () => {
     // Obtener el usuario desde el localStorage
     const storedUser = JSON.parse(localStorage.getItem('usuario'));
     if (storedUser && storedUser.cargo === 'Empleado') {
-      setUser(storedUser);
       cargarServiciosEmpleado(storedUser.id);
     } else {
       console.warn("Usuario no autorizado o datos no encontrados.");
